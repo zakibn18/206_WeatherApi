@@ -31,3 +31,7 @@ app.get("/api/lokasi", async (req, res) => {
     res.status(500).json({ message: "Gagal mengambil data dari Maptiler" });
   }
 });
+
+app.listen(PORT, () => {
+  console.log(`Server berjalan di http://localhost:${PORT}`);
+});
