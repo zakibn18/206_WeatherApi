@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Geolocation App</title>
+  </head>
+  <body>
+    <h3>Nama : Mihael Dwi Prasetyo</h3>
+    <h3>NIM : 312210001</h3>
+
+    <p>kota : <span id="lokasi"></span><br /></p>
+
+    <p>Koordinat : <span id="negara"></span></p>
+
+    <script>
+      fetch("/api/lokasi")
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+
+          document.getElementById("lokasi").innerHTML = data.kota;
+          document.getElementById("negara").innerHTML = data.koordinat;
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error);
+        });
+    </script>
+  </body>
+</html>
